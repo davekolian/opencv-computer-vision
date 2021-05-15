@@ -54,7 +54,7 @@ if 'model.h5' not in os.listdir():
 
     model = Sequential()
 
-    model.add(Conv2D(32, (3, 3), activation='relu'))
+    model.add(Conv2D(64, (3, 3), activation='relu'))
     model.add(MaxPooling2D(2, 2))
 
     model.add(Conv2D(64, (3, 3), activation='relu'))
@@ -70,7 +70,7 @@ if 'model.h5' not in os.listdir():
 
     model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
-    model.fit(X, y, epochs=20, batch_size=64)
+    model.fit(X, y, epochs=30, batch_size=64)
 
     loss, acc = model.evaluate(test_X, test_y)
     print(f"Accuracy: {acc*100:.2f}%")
